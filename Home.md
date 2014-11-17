@@ -6,6 +6,8 @@ EDDN is not run by or affiliated with [Frontier Developments](http://www.frontie
 
 # Using EDDN
 
+EDDN is currently in a proof-of-concept phase. Any information here may be subject to change, but this page should be mostly up to date.
+
 How you use EDDN depends on who you are:
 
 ## Trading software users
@@ -55,3 +57,8 @@ Currently available relays:
 You'll need to use your ZeroMQ library to connect to that stream, then zlib-decompress the messages as they come over the stream. And that's all - you then have access to all the data being uploaded to the network, almost instantly.
 
 A sample client application is at https://github.com/jamesremuscat/EDDN/blob/master/src/eddn/Client.py - it simply dumps the data to the console. You'll probably want to do something more exciting with it!
+
+# Contact
+
+* [E:D forum thread](https://forums.frontier.co.uk/showthread.php?t=57986)
+* [E-mail bugs@elite-markets.net](mailto:bugs@elite-markets.net)
