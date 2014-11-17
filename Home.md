@@ -18,9 +18,28 @@ To upload market data to EDDN, you'll need to make a POST request to the URL:
 
 * http://eddn-gateway.elite-markets.net:8080/upload/
 
-The body of the request should be a JSON-format message containing the market data. The format is along the lines of the following:
+The body of the request should be a JSON-format message containing the market data. 
 
-`tbc`
+The exact format specification is still under development, but will be along the lines of the following:
+
+`{
+    '$schema': 'http://schemas.elite-markets.net/eddn/commodity/1',
+    'header': {
+        'messageType': 'commodityPrice'
+    },
+    'message': {
+        'categoryName': 'Metals',
+        'buyPrice': 1024,
+        'timestamp': '2014-11-17T12:34:56+00:00',
+        'stationStock': 7,
+        'stationName': 'Azeban Orbital',
+        'demand': 42,
+        'sellPrice': 1138,
+        'itemName': 'Gold'
+    }
+}`
+
+This is a very similar format to that used by the short-lived EMDN service, so existing clients should be able to work with it with only minor modifications.
 
 ## Other developers (data users)
 
