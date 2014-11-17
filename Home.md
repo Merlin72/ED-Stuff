@@ -2,7 +2,7 @@
 
 The **Elite: Dangerous Data Network** is a system for willing Commanders to share dynamic data about the galaxy with others. By pooling data in a common format, tools and analyses can be produced that add an even greater depth and vibrancy to the in-game universe.
 
-EDDN is not run by or affiliated with Frontier Developments.
+EDDN is not run by or affiliated with [Frontier Developments](http://www.frontier.co.uk/). Hosting has been very generously provided by [Vivio Technologies](https://www.viviotech.net/).
 
 # Using EDDN
 
@@ -10,7 +10,7 @@ How you use EDDN depends on who you are:
 
 ## Trading software users
 
-Bug the developer of your software to incorporate support for EDDN!
+Bug the developer of your software to incorporate support for EDDN! When your software supports using the EDDN, you'll have access to the data of all other Commanders who are participating - and you'll be helping keep the network running.
 
 ## Trading software developers
 
@@ -22,24 +22,28 @@ The body of the request should be a JSON-format message containing the market da
 
 The exact format specification is still under development, but will be along the lines of the following:
 
-`{
-    '$schema': 'http://schemas.elite-markets.net/eddn/commodity/1',
-    'header': {
-        'messageType': 'commodityPrice'
-    },
-    'message': {
-        'categoryName': 'Metals',
-        'buyPrice': 1024,
-        'timestamp': '2014-11-17T12:34:56+00:00',
-        'stationStock': 7,
-        'stationName': 'Azeban Orbital',
-        'demand': 42,
-        'sellPrice': 1138,
-        'itemName': 'Gold'
+    {
+        '$schema': 'http://schemas.elite-markets.net/eddn/commodity/1',
+        'header': {
+            'uploaderID': 'abcdef0123456789',
+            'softwareName': 'My Awesome Market Uploader',
+            'softwareVersion': 'v3.14'
+        },
+        'message': {
+            'categoryName': 'Metals',
+            'buyPrice': 1024,
+            'timestamp': '2014-11-17T12:34:56+00:00',
+            'stationStock': 7,
+            'stationName': 'Azeban Orbital',
+            'demand': 42,
+            'sellPrice': 1138,
+            'itemName': 'Gold'
+        }
     }
-}`
 
 This is a very similar format to that used by the short-lived EMDN service, so existing clients should be able to work with it with only minor modifications.
+
+It is expected that other types of data will be carried by the EDDN; the special '$schema' property of the message can be used to determine what sort of message is being sent, and what version of the format spec is being used.
 
 ## Other developers (data users)
 
