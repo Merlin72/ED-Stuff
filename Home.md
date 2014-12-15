@@ -12,7 +12,7 @@ How you use EDDN depends on who you are:
 
 ## Trading software users
 
-Bug the developer of your software to incorporate support for EDDN! When your software supports using the EDDN, you'll have access to the data of all other Commanders who are participating - and you'll be helping keep the network running.
+Ask the developer of your software to incorporate support for EDDN! When your software supports using the EDDN, you'll have access to the data of all other Commanders who are participating - and you'll be helping keep the network running.
 
 ## Trading software developers
 
@@ -47,6 +47,8 @@ This is a very similar format to that used by the short-lived EMDN service, so e
 
 It is expected that other types of data will be carried by the EDDN; the special '$schema' property of the message can be used to determine what sort of message is being sent, and what version of the format spec is being used.
 
+_At present, any valid JSON message is passed through the gateway; we will be introducing validation against a set of JSON schemas once the format has been stabilised._
+
 ## Other developers (data users)
 
 EDDN provides a continuous stream of information from uploaders. To use this data you'll need to connect to the stream using ZeroMQ (a library is probably available for your language of choice).
@@ -54,7 +56,7 @@ EDDN provides a continuous stream of information from uploaders. To use this dat
 Currently available relays:
 * tcp://eddn-relay.elite-markets.net:9500
 
-You'll need to use your ZeroMQ library to connect to that stream, then zlib-decompress the messages as they come over the stream. And that's all - you then have access to all the data being uploaded to the network, almost instantly.
+You'll need to use your ZeroMQ library to connect to that stream, then zlib-decompress (as simple as zlib.decompress(message) in Python!) the messages as they come over the stream. And that's all - you then have access to all the data being uploaded to the network, almost instantly.
 
 A sample client application is at https://github.com/jamesremuscat/EDDN/blob/master/src/eddn/Client.py - it simply dumps the data to the console. You'll probably want to do something more exciting with it!
 
