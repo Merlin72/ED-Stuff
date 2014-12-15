@@ -37,6 +37,7 @@ The exact format specification is still under development, but will be along the
             'timestamp': '2014-11-17T12:34:56+00:00',
             'stationStock': 7,
             'stationName': 'Azeban Orbital',
+            'systemName': 'Eranin',
             'demand': 42,
             'sellPrice': 1138,
             'itemName': 'Gold'
