@@ -25,26 +25,25 @@ The body of the request should be a JSON-format message containing the market da
 The exact format specification is still under development, but will be along the lines of the following:
 
     {
-        '$schemaRef': 'http://schemas.elite-markets.net/eddn/commodity/1',
-        'header': {
-            'uploaderID': 'abcdef0123456789',
-            'softwareName': 'My Awesome Market Uploader',
-            'softwareVersion': 'v3.14'
+        "$schemaRef": "http://schemas.elite-markets.net/eddn/commodity/1",
+        "header": {
+            "uploaderID": "abcdef0123456789",
+            "softwareName": "My Awesome Market Uploader",
+            "softwareVersion": "v3.14"
         },
-        'message': {
-            'categoryName': 'Metals',
-            'buyPrice': 1024,
-            'timestamp': '2014-11-17T12:34:56+00:00',
-            'stationStock': 7,
-            'stationName': 'Azeban Orbital',
-            'systemName': 'Eranin',
-            'demand': 42,
-            'sellPrice': 1138,
-            'itemName': 'Gold'
+        "message": {
+            "systemName": "Eranin",
+            "stationName": "Azeban Orbital",
+            "itemName": "Gold",
+            "buyPrice": 1024,
+            "stationStock": 7,
+            "sellPrice": 1138,
+            "demand": 42,
+            "timestamp": "2014-11-17T12:34:56+00:00"
         }
     }
 
-This is a very similar format to that used by the short-lived EMDN service, so existing clients should be able to work with it with only minor modifications.
+This is a very similar format to that used by the short-lived EMDN service, so existing clients should be able to work with it with only minor modifications. Note that ordering of properties is not considered significant in JSON objects.
 
 It is expected that other types of data will be carried by the EDDN; the special '$schema' property of the message can be used to determine what sort of message is being sent, and what version of the format spec is being used.
 
