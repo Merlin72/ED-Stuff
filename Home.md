@@ -25,7 +25,7 @@ The body of the request should be a JSON-format message containing the market da
 The exact format specification is still under development, but will be along the lines of the following:
 
     {
-        '$schema': 'http://schemas.elite-markets.net/eddn/commodity/1',
+        '$schemaRef': 'http://schemas.elite-markets.net/eddn/commodity/1',
         'header': {
             'uploaderID': 'abcdef0123456789',
             'softwareName': 'My Awesome Market Uploader',
