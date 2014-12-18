@@ -47,7 +47,10 @@ This is a very similar format to that used by the short-lived EMDN service, so e
 
 It is expected that other types of data will be carried by the EDDN; the special '$schema' property of the message can be used to determine what sort of message is being sent, and what version of the format spec is being used.
 
-_At present, any valid JSON message is passed through the gateway; we will be introducing validation against a set of JSON schemas once the format has been stabilised._
+You MUST include a '$schemaRef' property in the root object of your message. The $schemaRef MUST be one of the following:
+* http://schemas.elite-markets.net/eddn/commodity/1 for commodity price data messages
+* http://schemas.elite-markets.net/eddn/commodity/1/test for testing commodity price data messages
+* http://example.com for testing arbitrary JSON - no further validation is applied
 
 ## Other developers (data users)
 
@@ -57,6 +60,8 @@ Currently available relays:
 * tcp://eddn-relay.elite-markets.net:9500
 
 You'll need to use your ZeroMQ library to connect to that stream, then zlib-decompress (as simple as zlib.decompress(message) in Python!) the messages as they come over the stream. And that's all - you then have access to all the data being uploaded to the network, almost instantly.
+
+Consumers of data SHOULD examine the $schemaRef property to determine what kind of message has been received, and what if any processing to carry out on the data.
 
 A sample client application is at https://github.com/jamesremuscat/EDDN/blob/master/src/eddn/Client.py - it simply dumps the data to the console. You'll probably want to do something more exciting with it!
 
