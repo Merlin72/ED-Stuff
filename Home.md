@@ -45,7 +45,7 @@ The exact format specification is still under development, but will be along the
 
 This is a very similar format to that used by the short-lived EMDN service, so existing clients should be able to work with it with only minor modifications. Note that ordering of properties is not considered significant in JSON objects.
 
-It is expected that other types of data will be carried by the EDDN; the special '$schema' property of the message can be used to determine what sort of message is being sent, and what version of the format spec is being used.
+It is expected that other types of data will be carried by the EDDN; the special '$schemaRef' property of the message can be used to determine what sort of message is being sent, and what version of the format spec is being used.
 
 You MUST include a '$schemaRef' property in the root object of your message. The $schemaRef MUST be one of the following:
 * http://schemas.elite-markets.net/eddn/commodity/1 for commodity price data messages
